@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -47,9 +48,9 @@ const Navbar = () => {
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    About
-                  </a>
+                  <Link to="about">
+                    <span class="nav-link">About</span>
+                  </Link>
                 </li>
               </ul>
               <a class="btn btn-primary ms-md-2" role="button" href="#">
