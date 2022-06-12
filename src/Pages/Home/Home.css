@@ -5,3 +5,16 @@
 .max350 {
     max-width: 350px;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300&display=swap');
+
+body {
+    font-family: 'Lexend Deca', sans-serif;
+}
+
+.homeimg {
+    width: 1000px;
+    border: none;
+    border-radius: 50px;
+    align-content: center;
+}
