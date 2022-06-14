@@ -1,0 +1,29 @@
+.Flashcardpage h1 {
+    padding-top: 30px;
+    font-family: 'Lexend Deca', sans-serif;
+    text-align: center;
+    color: white;
+    font-size: 70px;
+    text-shadow: 3px 3px 2px rgb(77, 77, 77);
+    font-weight: bold;
+  }
+  
+  .button_back {
+    background-color: #4975E7;
+    border: none;
+    color: white;
+    border-radius: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 70px;
+    padding-right: 70px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 23px;
+    margin-left: 57px;
+    margin-bottom: 15px;
+    margin-top: 40px;
+    cursor: pointer;
+    box-shadow: 3px 3px 5px rgb(101, 99, 99);
+  }

@@ -8,11 +8,12 @@ const Home = () => {
     <div>
       <div class="container py-4 py-xl-5">
         <div class="row gy-4 gy-md-0">
-          <div class="col-md-6">
+          <div class="col-md-12">
             <div class="p-xl-5 m-xl-5">
+              {/* gambarnya ini blm ke tengah */}
               <img
-                class="rounded img-fluid w-100 fit-cover min300"
-                src="https://play-lh.googleusercontent.com/PCpXdqvUWfCW1mXhH1Y_98yBpgsWxuTSTofy3NGMo9yBTATDyzVkqU580bfSln50bFU"
+                class="homeimg align-items-md-center min300"
+                src={require('../../Components/CategoryIcon/homeimg.jpg')}
               />
             </div>
           </div>
