@@ -1,6 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { auth } from "../../firebase";
 
 const Login = () => {
+  const history = useHistory();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const signIn = (e) => {
+    e.preventDefault();
+
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((auth) => {
+        history.push("/");
+        // console.log(auth);
+      })
+      .catch((error) => alert(error.message));
+  };
+
+  const register = (e) => {
+    e.preventDefault();
+
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((auth) => {
+        // it successfully created a new user with email and password
+        if (auth) {
+          history.push("/");
+        }
+        // console.log(auth);
+      })
+      .catch((error) => alert(error.message));
+  };
+
   return (
     <div>
       <div class="container">
@@ -50,6 +83,8 @@ const Login = () => {
                         type="email"
                         name="email"
                         placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                       />
                     </div>
                     <div class="mb-3">
@@ -58,14 +93,26 @@ const Login = () => {
                         type="password"
                         name="password"
                         placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                       />
                     </div>
                     <div class="mb-3">
                       <button
                         class="btn btn-primary d-block w-100"
                         type="submit"
+                        onClick={signIn}
                       >
                         Login
+                      </button>
+                    </div>
+                    <div class="mb-3">
+                      <button
+                        class="btn btn-info d-block w-100"
+                        type="submit"
+                        onClick={register}
+                      >
+                        Register
                       </button>
                     </div>
                     <p class="text-muted">Forgot your password?</p>

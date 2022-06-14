@@ -1,8 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { auth } from "../../firebase";
+import { useStateValue } from "../../StateProvider";
 import "./Navbar.css";
 
 const Navbar = () => {
+  const [{ user }, dispatch] = useStateValue();
+
+  const handleAuthenticaton = () => {
+    if (user) {
+      auth.signOut();
+    }
+  };
+
   return (
     <div>
       <div class="container">
@@ -42,10 +52,36 @@ const Navbar = () => {
                   </Link>
                 </li>
               </ul>
-              <Link to="login">
-                <a class="btn btn-primary ms-md-2" role="button" href="#">
-                  Login
-                </a>
+              <Link to={!user && "/login"}>
+                <div
+                  className="handleAuthenticaton"
+                  onClick={handleAuthenticaton}
+                >
+                  {!user ? (
+                    <a class="btn btn-primary ms-md-2" role="button" href="#">
+                      Login
+                    </a>
+                  ) : (
+                    <a class="btn btn-danger ms-md-2" role="button" href="#">
+                      Logout
+                    </a>
+                  )}
+                </div>
+
+                {/* <Link to={!user && "/login"}>
+                  <div onClick={handleAuthenticaton} className="header__option">
+                    <span className="header__optionLineOne">
+                      Hello {!user ? "Guest" : user.email}
+                    </span>
+                    <span className="header__optionLineTwo">
+                      {user ? "Sign Out" : "Sign In"}
+                    </span>
+                  </div>
+                </Link> */}
+
+                {/* <a class="btn btn-danger ms-md-2" role="button" href="#">
+                  Logout
+                </a> */}
               </Link>
             </div>
           </div>
