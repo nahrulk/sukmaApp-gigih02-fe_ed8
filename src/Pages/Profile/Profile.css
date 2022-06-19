@@ -8,7 +8,9 @@
     text-align: left;
 }
 
-
+.container {
+    font-family: 'Lexend Deca', sans-serif;
+}
 
 .row {
     display: flex;
@@ -17,18 +19,30 @@
 }
 
 .card-body {
-    font-family: sans-serif;
     text-align: center;
-    margin-left: 0px;
-    margin-top: 50px;
-    margin-bottom: 20px;
-    max-width: 200px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
     color: black;
+    height: 250px;
+    background-image: linear-gradient(#E6E6E6, #D7F2FE);
+    border-radius: 35px;
+    box-shadow: 3px 3px 5px rgb(101, 99, 99);
+    width: 300px !important;
 }
 
+h1 {
+    padding-top: 30px;
+    font-family: 'Lexend Deca', sans-serif;
+    text-align: center;
+    color: white;
+    margin-bottom: -10px !important;
+    font-size: 60px !important;
+    text-shadow: 3px 3px 2px rgb(77, 77, 77);
+    font-weight: bolder !important;
+}
+
+
+
 .button {
+    padding-top: 20px !important;
     font-size: 40px;
     padding: 10px;
     border-radius: 10px;
@@ -42,16 +56,20 @@
 .card {
     text-align: center;
     align-items: center;
+    background-color: transparent !important;
+    border: none !important;
 }
 
 .flipcard {
-    display: flex;
+    display: grid;
     flex-direction: row;
     justify-content: space-around;
+    grid-template-columns: auto auto auto auto;
+    
 }
 
 .flip-front {
-    width: 200%;
+    width: 80%;
     height: 300px;
     margin: 50px;
     border: 1px solid transparent;

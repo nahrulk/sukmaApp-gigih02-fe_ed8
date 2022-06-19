@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { auth } from "../../firebase";
 import { useStateValue } from "../../StateProvider";
 import "./Navbar.css";
+import { NavDropdown } from "react-bootstrap";
 
 const Navbar = () => {
   const [{ user, fav }, dispatch] = useStateValue();
@@ -39,13 +40,38 @@ const Navbar = () => {
                     </a>
                   </Link>
                 </li>
-                <li class="nav-item">
+                {/* <li class="nav-item">
                   <Link to="/card">
                     <a class="nav-link" href="#">
                       Card
                     </a>
                   </Link>
-                </li>
+                </li> */}
+                <NavDropdown title="Catagory" id="basic-nav-dropdown">
+                    <NavDropdown.Item>
+                      <Link to="/Cybercard">
+                        <a class="nav-down" href="#"> Cyber Bullying </a>
+                      </Link>
+                    </NavDropdown.Item>
+                    
+                    <NavDropdown.Item>
+                      <Link to="/Sexualcard">
+                        <a class="nav-down" href="#"> Sexual Bullying </a>
+                      </Link>
+                    </NavDropdown.Item>
+
+                    <NavDropdown.Item>
+                      <Link to="/Physicalcard">
+                        <a class="nav-down" href="#"> Physical Bullying </a>
+                      </Link>
+                    </NavDropdown.Item>
+
+                    <NavDropdown.Item>
+                      <Link to="/Verbalcard">
+                        <a class="nav-down" href="#"> Verbal Bullying </a>
+                      </Link>
+                    </NavDropdown.Item>
+                </NavDropdown>
                 <li class="nav-item">
                   <Link to="/profile/">
                     <span class="nav-link">Profile ({fav?.length})</span>
