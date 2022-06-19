@@ -5,7 +5,7 @@ import { useStateValue } from "../../StateProvider";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user, fav }, dispatch] = useStateValue();
 
   const handleAuthenticaton = () => {
     if (user) {
@@ -44,6 +44,11 @@ const Navbar = () => {
                     <a class="nav-link" href="#">
                       Card
                     </a>
+                  </Link>
+                </li>
+                <li class="nav-item">
+                  <Link to="/profile/">
+                    <span class="nav-link">Profile ({fav?.length})</span>
                   </Link>
                 </li>
                 <li class="nav-item">
