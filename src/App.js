@@ -7,6 +7,7 @@ import About from "./Pages/About/About";
 import Login from "./Pages/Login/Login";
 import Home from "./Pages/Home/Home";
 import Flashcardpage from "./Pages/Flashcard/Flashcardpage";
+import Profile from "./Pages/Profile/Profile";
 import { auth } from "./firebase";
 import { useEffect } from "react";
 import { useStateValue } from "./StateProvider";
@@ -51,6 +52,9 @@ function App() {
             </Route>
             <Route path="/login">
               <Login />
+            </Route>
+            <Route path="/profile">
+              <Profile />
             </Route>
             <Route path="/card">
               <Flashcardpage />
