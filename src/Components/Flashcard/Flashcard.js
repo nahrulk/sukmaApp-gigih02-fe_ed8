@@ -33,7 +33,7 @@ const Flashcards = (props) => {
 
   const loading = <div className="loading">Loading flashcard content...</div>;
 
-  console.log(fav);
+  // console.log(fav.front);
 
   const cards = items.map((item) => {
     return (
