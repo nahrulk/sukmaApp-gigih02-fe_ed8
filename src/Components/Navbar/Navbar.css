@@ -15,6 +15,9 @@ a {
     font-size: 30px;
 } */
 
+.nav-down {
+  color: black !important;
+}
 .navbar-nav {
     color: white;
 }

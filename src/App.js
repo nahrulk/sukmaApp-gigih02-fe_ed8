@@ -6,11 +6,15 @@ import Footer from "./Components/Footer/Footer";
 import About from "./Pages/About/About";
 import Login from "./Pages/Login/Login";
 import Home from "./Pages/Home/Home";
-import Flashcardpage from "./Pages/Flashcard/Flashcardpage";
+import Cyberpage from "./Pages/Flashcard/Cyberpage";
 import Profile from "./Pages/Profile/Profile";
 import { auth } from "./firebase";
 import { useEffect } from "react";
 import { useStateValue } from "./StateProvider";
+import Sexualpage from "./Pages/Flashcard/Sexualpage";
+import Physicalpage from "./Pages/Flashcard/Physicalpage";
+import Verbalpage from "./Pages/Flashcard/Verbalpage";
+
 
 function App() {
   const [{}, dispatch] = useStateValue();
@@ -56,8 +60,17 @@ function App() {
             <Route path="/profile">
               <Profile />
             </Route>
-            <Route path="/card">
-              <Flashcardpage />
+            <Route path="/Cybercard">
+              <Cyberpage />
+            </Route>
+            <Route path="/Sexualcard">
+              <Sexualpage />
+            </Route>
+            <Route path="/Physicalcard">
+              <Physicalpage />
+            </Route>
+            <Route path="/Verbalcard">
+              <Verbalpage />
             </Route>
           </Switch>
           <Footer />

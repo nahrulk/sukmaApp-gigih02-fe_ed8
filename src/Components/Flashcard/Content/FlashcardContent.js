@@ -196,7 +196,7 @@ export const verbal = [{
   id: "verbal1",
   front: {
     type: 'string',
-    display: 'APA ITU Bullying Verbal?',
+    display: 'Apa itu Bullying Verbal?',
   },
   back: {
     type: 'string',
@@ -278,7 +278,7 @@ export const fisik = [{
   id: "fisik1",
   front: {
     type: 'string',
-    display: 'APA ITU Bullying Fisik?',
+    display: 'Apa itu Bullying Fisik?',
   },
   back: {
     type: 'string',
@@ -308,7 +308,7 @@ export const fisik = [{
   id: "fisik4",
   front: {
     type: 'string',
-    display: 'Apa hukuman bagi pelaku Bullying Verbal?',
+    display: 'Apa hukuman bagi pelaku Bullying Fisik?',
   },
   back: {
     type: 'string',

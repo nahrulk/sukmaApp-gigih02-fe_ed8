@@ -18,26 +18,26 @@ const Profile = () => {
 
   return (
     <div>
-      <div class="continer">
+      <div class="container">
         <div class="row">
           <div class="col.md-4 mt-1">
-            <div class="card border-primary text-white bg-dark text-center sidebar">
+            <div class="card">
+            <h1>PROFILE</h1>
               <div class="card-body ">
                 {/* <img
                   src="user picture.jpg"
                   class="rounded-circle"
                   width="150"
                 /> */}
-                <div class="mt-6 text-white bg-dark">
-                  {/* <h3>Jane Doe</h3> */}
-
+                <div class="mt-6">
+                  {/* <h3>Username</h3> */}
                   {!user ? <h4>Guest</h4> : <h4>{user?.email}</h4>}
 
                   <div
                     id="btn-container"
                     className="handleAuthenticaton"
                     onClick={handleAuthenticaton}
-                  >
+                  > <br></br>
                     <Link to={!user && "/login"}>
                       {!user ? (
                         <button className="btn btn-primary">Log In</button>
@@ -51,14 +51,12 @@ const Profile = () => {
             </div>
           </div>
 
-          <div class="card text-white bg-dark">
-            <h2>Favorites ({fav?.length})</h2>
+            <h1>FAVORITE CARDS ({fav?.length})</h1>
             <div class="flipcard">
               {fav.map((item) => (
                 <FavCard front={item.front.display} id={item.id} />
               ))}
             </div>
-          </div>
         </div>
       </div>
     </div>
