@@ -46,6 +46,17 @@ const Flashcards = (props) => {
     );
   });
 
+  // console.log(fav);
+  // console.log(items);
+  // console.log(props.items[1]);
+  // console.log(fav.id === items.id);
+
+  let storeFav = fav.find((favs) => favs.id === props.items[current].id); // melakukan mapping untuk mengecek apakah ada data atau tidak
+
+  // console.log(storeFav);
+
+  const favDisabled = storeFav ? true : false;
+
   return (
     <div>
       {/* number of cards */}
@@ -70,7 +81,11 @@ const Flashcards = (props) => {
           </button>
         )}
 
-        <button className="btn btn-primary" onClick={addToFav}>
+        <button
+          className="btn btn-primary"
+          disabled={favDisabled}
+          onClick={addToFav}
+        >
           Add to favorit
         </button>
 
