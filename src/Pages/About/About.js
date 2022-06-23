@@ -9,12 +9,16 @@ const About = () => {
             <section class="py-4 py-xl-5">
               <div class="container">
                 <div class="text-white bg-dark border rounded border-0 p-4 p-md-5">
-                  <h4 class="fw-bold text-white mb-3">
-                    Biben dum fringi dictum, augue purus
-                  </h4>
+                  <h4 class="fw-bold text-white mb-3">Apa itu SUKMA?</h4>
                   <p class="mb-4">
-                    Tincidunt laoreet leo, adipiscing taciti tempor. Primis
-                    senectus sapien, risus donec ad fusce augue interdum.
+                    Berawal dari kekhawatiran dan semakin banyaknya angka
+                    perundungan di Indonesia khususnya di wilayah yang vital
+                    yaitu pendidikan. Kami sebagai team memutuskan untuk
+                    menciptakan sebuah website yang kami harapkan nantinya, bisa
+                    menjadi Safe-place bagi mereka yang menjadi korban. Dan juga
+                    menjadi tempat dimana akan menyediakan berbagai macam
+                    informasi untuk mencegah semakin banyaknya perundungan di
+                    dunia pendidikan Indonesia.
                   </p>
                 </div>
               </div>
@@ -24,12 +28,15 @@ const About = () => {
             <section class="py-4 py-xl-5">
               <div class="container">
                 <div class="text-white bg-dark border rounded border-0 p-4 p-md-5">
-                  <h4 class="fw-bold text-white mb-3">
-                    Biben dum fringi dictum, augue purus
-                  </h4>
+                  <h4 class="fw-bold text-white mb-3">Visi dan Misi</h4>
                   <p class="mb-4">
-                    Tincidunt laoreet leo, adipiscing taciti tempor. Primis
-                    senectus sapien, risus donec ad fusce augue interdum.
+                    Sukma adalah aplikasi berbasis website yang tim kami
+                    ciptakan demi mencegah angka perundungan atau pembullyan
+                    yang sangat marak terjadi khususnya di dunia pendidikan.
+                    Tentunya kami harapkan dengan diluncurkannya SUKMA, kami
+                    bisa menambahkan awareness kepada banyak orang dan bisa
+                    mengurangi angka perundungan di indonesia, khususnya di
+                    dunia pendidikan.
                   </p>
                 </div>
               </div>
@@ -44,8 +51,8 @@ const About = () => {
           <div class="col-md-8 col-xl-6 text-center mx-auto">
             <h2>Our Team</h2>
             <p class="w-lg-50">
-              Curae hendrerit donec commodo hendrerit egestas tempus, turpis
-              facilisis nostra nunc. Vestibulum dui eget ultrices.
+              Perkenalkan, kami dari SUKMA team! Kami selalu berusaha untuk
+              melakukan yang terbaik demi mencapai tujuan kami. Inilah kami!
             </p>
           </div>
         </div>
@@ -60,9 +67,11 @@ const About = () => {
                   src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png"
                 />
                 <h5 class="fw-bold text-primary card-title mb-0">
-                  <strong>John Smith</strong>
+                  <strong>Erryck Norrys</strong>
                 </h5>
-                <p class="text-muted card-text mb-2">Erat netus</p>
+                <p class="text-muted card-text mb-2">
+                  Project Manager, Front-end Engineer
+                </p>
                 <ul class="list-inline fs-6 text-muted w-100 mb-0">
                   <li class="list-inline-item text-center">
                     <div class="d-flex flex-column align-items-center">
@@ -120,9 +129,9 @@ const About = () => {
                   src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png"
                 />
                 <h5 class="fw-bold text-primary card-title mb-0">
-                  <strong>John Smith</strong>
+                  <strong>Nahrul Khayatullah</strong>
                 </h5>
-                <p class="text-muted card-text mb-2">Erat netus</p>
+                <p class="text-muted card-text mb-2">Front-End Engineer</p>
                 <ul class="list-inline fs-6 text-muted w-100 mb-0">
                   <li class="list-inline-item text-center">
                     <div class="d-flex flex-column align-items-center">
@@ -182,9 +191,11 @@ const About = () => {
                   src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png"
                 />
                 <h5 class="fw-bold text-primary card-title mb-0">
-                  <strong>John Smith</strong>
+                  <strong>Shafa Salsabila Pribadi</strong>
                 </h5>
-                <p class="text-muted card-text mb-2">Erat netus</p>
+                <p class="text-muted card-text mb-2">
+                  UI/UX Designer, Front-End Engineer
+                </p>
                 <ul class="list-inline fs-6 text-muted w-100 mb-0">
                   <li class="list-inline-item text-center">
                     <div class="d-flex flex-column align-items-center">
@@ -242,9 +253,12 @@ const About = () => {
                   src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png"
                 />
                 <h5 class="fw-bold text-primary card-title mb-0">
-                  <strong>John Smith</strong>
+                  <strong>Luthfiah Ananda Putri</strong>
                 </h5>
-                <p class="text-muted card-text mb-2">Erat netus</p>
+                <p class="text-muted card-text mb-2">
+                  {" "}
+                  UI/UX Designer, Front-End Engineer
+                </p>
                 <ul class="list-inline fs-6 text-muted w-100 mb-0">
                   <li class="list-inline-item text-center">
                     <div class="d-flex flex-column align-items-center">
@@ -302,9 +316,9 @@ const About = () => {
                   src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png"
                 />
                 <h5 class="fw-bold text-primary card-title mb-0">
-                  <strong>John Smith</strong>
+                  <strong>Merina</strong>
                 </h5>
-                <p class="text-muted card-text mb-2">Erat netus</p>
+                <p class="text-muted card-text mb-2">Front-End Engineer</p>
                 <ul class="list-inline fs-6 text-muted w-100 mb-0">
                   <li class="list-inline-item text-center">
                     <div class="d-flex flex-column align-items-center">
