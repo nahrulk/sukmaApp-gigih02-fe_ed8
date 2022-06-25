@@ -22,9 +22,9 @@
     opacity: 0.85;
     transition: all 0.25s;
     cursor: pointer;
-    width: 100px;
+    width: 150px;
 }
-  
+
 .nav button:hover {
     opacity: 1;
     transform: translateY(-2px);
