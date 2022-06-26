@@ -1,18 +1,40 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../../firebase";
-import { useStateValue } from "../../StateProvider";
 import "./Navbar.css";
 import { NavDropdown } from "react-bootstrap";
+import { dbLive } from "../../firebase";
+import { uid } from "uid";
+import { set, ref, onValue, remove, update } from "firebase/database";
+import { useEffect } from "react";
+import { AuthContext } from "../../Context/AuthContext";
 
 const Navbar = () => {
-  const [{ user, fav }, dispatch] = useStateValue();
+  // const [{ user, fav }, dispatch] = useStateValue();
+  const { currentUser } = useContext(AuthContext);
 
-  const handleAuthenticaton = () => {
-    if (user) {
-      auth.signOut();
-    }
-  };
+  // const handleAuthenticaton = () => {
+  //   if (user) {
+  //     auth.signOut();
+  //   }
+  // };
+
+  const [favs, setFavs] = useState([]);
+  let { userFav } = useState([]);
+
+  useEffect(() => {
+    onValue(ref(dbLive), (snapshot) => {
+      setFavs([]);
+      const data = snapshot.val();
+      if (data !== null) {
+        Object.values(data).map((fav) => {
+          setFavs((oldArray) => [...oldArray, fav]);
+        });
+      }
+    });
+  }, []);
+
+  userFav = favs.filter((item) => item.userId === currentUser.uid);
 
   return (
     <div>
@@ -40,41 +62,47 @@ const Navbar = () => {
                     </a>
                   </Link>
                 </li>
-                {/* <li class="nav-item">
-                  <Link to="/card">
-                    <a class="nav-link" href="#">
-                      Card
-                    </a>
-                  </Link>
-                </li> */}
+
                 <NavDropdown title="Catagory" id="basic-nav-dropdown">
-                    <NavDropdown.Item>
-                      <Link to="/Cybercard">
-                        <a class="nav-down" href="#"> Cyber Bullying </a>
-                      </Link>
-                    </NavDropdown.Item>
-                    
-                    <NavDropdown.Item>
-                      <Link to="/Sexualcard">
-                        <a class="nav-down" href="#"> Sexual Bullying </a>
-                      </Link>
-                    </NavDropdown.Item>
+                  <NavDropdown.Item>
+                    <Link to="/Cybercard">
+                      <a class="nav-down" href="#">
+                        {" "}
+                        Cyber Bullying{" "}
+                      </a>
+                    </Link>
+                  </NavDropdown.Item>
 
-                    <NavDropdown.Item>
-                      <Link to="/Physicalcard">
-                        <a class="nav-down" href="#"> Physical Bullying </a>
-                      </Link>
-                    </NavDropdown.Item>
+                  <NavDropdown.Item>
+                    <Link to="/Sexualcard">
+                      <a class="nav-down" href="#">
+                        {" "}
+                        Sexual Bullying{" "}
+                      </a>
+                    </Link>
+                  </NavDropdown.Item>
 
-                    <NavDropdown.Item>
-                      <Link to="/Verbalcard">
-                        <a class="nav-down" href="#"> Verbal Bullying </a>
-                      </Link>
-                    </NavDropdown.Item>
+                  <NavDropdown.Item>
+                    <Link to="/Physicalcard">
+                      <a class="nav-down" href="#">
+                        {" "}
+                        Physical Bullying{" "}
+                      </a>
+                    </Link>
+                  </NavDropdown.Item>
+
+                  <NavDropdown.Item>
+                    <Link to="/Verbalcard">
+                      <a class="nav-down" href="#">
+                        {" "}
+                        Verbal Bullying{" "}
+                      </a>
+                    </Link>
+                  </NavDropdown.Item>
                 </NavDropdown>
                 <li class="nav-item">
                   <Link to="/profile/">
-                    <span class="nav-link">Profile ({fav?.length})</span>
+                    <span class="nav-link">Profile ({userFav.length})</span>
                   </Link>
                 </li>
                 <li class="nav-item">
@@ -83,12 +111,13 @@ const Navbar = () => {
                   </Link>
                 </li>
               </ul>
-              <Link to={!user && "/login"}>
+              {/* <Link to={!user && "/login"}> */}
+              <Link to="/login">
                 <div
                   className="handleAuthenticaton"
-                  onClick={handleAuthenticaton}
+                  // onClick={handleAuthenticaton}
                 >
-                  {!user ? (
+                  {!currentUser ? (
                     <a class="btn btn-primary ms-md-2" role="button" href="#">
                       Login
                     </a>
@@ -98,21 +127,6 @@ const Navbar = () => {
                     </a>
                   )}
                 </div>
-
-                {/* <Link to={!user && "/login"}>
-                  <div onClick={handleAuthenticaton} className="header__option">
-                    <span className="header__optionLineOne">
-                      Hello {!user ? "Guest" : user.email}
-                    </span>
-                    <span className="header__optionLineTwo">
-                      {user ? "Sign Out" : "Sign In"}
-                    </span>
-                  </div>
-                </Link> */}
-
-                {/* <a class="btn btn-danger ms-md-2" role="button" href="#">
-                  Logout
-                </a> */}
               </Link>
             </div>
           </div>

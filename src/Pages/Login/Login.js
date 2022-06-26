@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthContext";
 import { auth } from "../../firebase";
 
 const Login = () => {
@@ -7,14 +8,18 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const { dispatch } = useContext(AuthContext);
+
   const signIn = (e) => {
     e.preventDefault();
 
     auth
       .signInWithEmailAndPassword(email, password)
-      .then((auth) => {
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        dispatch({ type: "LOGIN", payload: user });
         history.push("/");
-        // console.log(auth);
       })
       .catch((error) => alert(error.message));
   };
@@ -24,12 +29,11 @@ const Login = () => {
 
     auth
       .createUserWithEmailAndPassword(email, password)
-      .then((auth) => {
-        // it successfully created a new user with email and password
-        if (auth) {
-          history.push("/");
-        }
-        // console.log(auth);
+      .then((userCredential) => {
+        // Register
+        const user = userCredential.user;
+        dispatch({ type: "LOGIN", payload: user });
+        history.push("/");
       })
       .catch((error) => alert(error.message));
   };

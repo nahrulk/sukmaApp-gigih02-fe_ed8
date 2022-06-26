@@ -1,6 +1,7 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+// import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
 import About from "./Pages/About/About";
@@ -8,39 +9,23 @@ import Login from "./Pages/Login/Login";
 import Home from "./Pages/Home/Home";
 import Cyberpage from "./Pages/Flashcard/Cyberpage";
 import Profile from "./Pages/Profile/Profile";
-import { auth } from "./firebase";
-import { useEffect } from "react";
-import { useStateValue } from "./StateProvider";
+// import { auth } from "./firebase";
+// import { useEffect } from "react";
+// import { useStateValue } from "./StateProvider";
 import Sexualpage from "./Pages/Flashcard/Sexualpage";
 import Physicalpage from "./Pages/Flashcard/Physicalpage";
 import Verbalpage from "./Pages/Flashcard/Verbalpage";
-
+import { AuthContext } from "./Context/AuthContext";
+import { useContext } from "react";
 
 function App() {
-  const [{}, dispatch] = useStateValue();
+  const { currentUser } = useContext(AuthContext);
 
-  useEffect(() => {
-    // will only run once when the app component loads...
+  // const { currentUser } = false;
 
-    auth.onAuthStateChanged((authUser) => {
-      console.log("THE USER IS >>> ", authUser);
-
-      if (authUser) {
-        // the user just logged in / the user was logged in
-
-        dispatch({
-          type: "SET_USER",
-          user: authUser,
-        });
-      } else {
-        // the user is logged out
-        dispatch({
-          type: "SET_USER",
-          user: null,
-        });
-      }
-    });
-  }, []);
+  // const RequireAuth = ({ children }) => {
+  //   return currentUser ? children : <Navigate to="/login" />;
+  // };
 
   return (
     <body>
