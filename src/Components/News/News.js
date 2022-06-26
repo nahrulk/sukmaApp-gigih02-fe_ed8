@@ -7,7 +7,7 @@ const News = () => {
       <div class="container py-4 py-xl-5">
         <div class="row mb-5">
           <div class="col-md-8 col-xl-6 text-center mx-auto">
-            <h2>News</h2>
+            <h2>Guidance</h2>
           </div>
         </div>
         <div class="row gy-4 row-cols-1 row-cols-md-2">
@@ -20,11 +20,9 @@ const News = () => {
                 />
               </div>
               <div class="py-4 py-lg-0 px-lg-4">
-                <h4>Lorem libero donec</h4>
+                <a href="https://www.vic.gov.au/im-being-bullied" target="_blank" >I'm being bullied</a>
                 <p>
-                  Nullam id dolor id nibh ultricies vehicula ut id elit. Cras
-                  justo odio, dapibus ac facilisis in, egestas eget quam. Donec
-                  id elit non mi porta gravida at eget metus.
+                  Being bullied can feel awful. There are some important things you should do if you are being bullied.
                 </p>
               </div>
             </div>
@@ -38,11 +36,9 @@ const News = () => {
                 />
               </div>
               <div class="py-4 py-lg-0 px-lg-4">
-                <h4>Lorem libero donec</h4>
+                <a href="https://www.vic.gov.au/im-being-racially-bullied" target="_blank" >I'm being racially bullied</a>
                 <p>
-                  Nullam id dolor id nibh ultricies vehicula ut id elit. Cras
-                  justo odio, dapibus ac facilisis in, egestas eget quam. Donec
-                  id elit non mi porta gravida at eget metus.
+                  ​​Everyone has a role in stopping racist bullying. Don’t underestimate your ability to make a difference.
                 </p>
               </div>
             </div>
@@ -56,11 +52,9 @@ const News = () => {
                 />
               </div>
               <div class="py-4 py-lg-0 px-lg-4">
-                <h4>Lorem libero donec</h4>
+                <a href="https://www.vic.gov.au/ive-been-called-bully" target="_blank">I've been called a bully</a>
                 <p>
-                  Nullam id dolor id nibh ultricies vehicula ut id elit. Cras
-                  justo odio, dapibus ac facilisis in, egestas eget quam. Donec
-                  id elit non mi porta gravida at eget metus.
+                  It doesn't feel good to be called a bully. It means that someone doesn't like the way you behave towards them.
                 </p>
               </div>
             </div>
@@ -74,11 +68,9 @@ const News = () => {
                 />
               </div>
               <div class="py-4 py-lg-0 px-lg-4">
-                <h4>Lorem libero donec</h4>
+                <a href="https://www.vic.gov.au/i-know-someone-whos-being-bullied" target="_blank">I know someone who's being bullied</a>
                 <p>
-                  Nullam id dolor id nibh ultricies vehicula ut id elit. Cras
-                  justo odio, dapibus ac facilisis in, egestas eget quam. Donec
-                  id elit non mi porta gravida at eget metus.
+                  If someone you know is being bullied they need your help. Others respect you if you stand up for someone who is being bullied.
                 </p>
               </div>
             </div>
