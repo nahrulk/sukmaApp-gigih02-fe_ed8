@@ -1,13 +1,13 @@
 import React from "react";
-
+import "./News.css";
 const News = () => {
   return (
     <div>
       {/* News */}
       <div class="container py-4 py-xl-5">
         <div class="row mb-5">
-          <div class="col-md-8 col-xl-6 text-center mx-auto">
-            <h2>Guidance</h2>
+          <div class="col-md-8 col-xl-6 text-center mx-auto pb-5">
+            <h1>Bullying guidance for students</h1>
           </div>
         </div>
         <div class="row gy-4 row-cols-1 row-cols-md-2">
@@ -16,7 +16,7 @@ const News = () => {
               <div class="w-100">
                 <img
                   class="rounded img-fluid d-block w-100 fit-cover"
-                  src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png"
+                  src= {require("../News/1.jpg")}
                 />
               </div>
               <div class="py-4 py-lg-0 px-lg-4">
@@ -32,7 +32,7 @@ const News = () => {
               <div class="w-100">
                 <img
                   class="rounded img-fluid d-block w-100 fit-cover"
-                  src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png"
+                  src= {require("../News/2.jpg")}
                 />
               </div>
               <div class="py-4 py-lg-0 px-lg-4">
@@ -48,7 +48,7 @@ const News = () => {
               <div class="w-100">
                 <img
                   class="rounded img-fluid d-block w-100 fit-cover"
-                  src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png"
+                  src= {require("../News/3.jpg")}
                 />
               </div>
               <div class="py-4 py-lg-0 px-lg-4">
@@ -64,7 +64,7 @@ const News = () => {
               <div class="w-100">
                 <img
                   class="rounded img-fluid d-block w-100 fit-cover"
-                  src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png"
+                  src= {require("../News/4.jpg")}
                 />
               </div>
               <div class="py-4 py-lg-0 px-lg-4">

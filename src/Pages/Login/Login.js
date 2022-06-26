@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { auth } from "../../firebase";
+import "./Login.css";
 
 const Login = () => {
   const history = useHistory();
@@ -41,17 +42,15 @@ const Login = () => {
           <div class="col-md-6">
             <section class="py-4 py-xl-5">
               <div class="container">
-                <div class="bg-dark border rounded border-0 border-dark overflow-hidden">
+                <div class=" border rounded border-0 border-dark overflow-hidden">
                   <div class="row g-0">
                     <div class="col">
                       <div class="text-white p-4 p-md-5">
-                        <h2 class="fw-bold text-white mb-3">
-                          Biben dum fringi dictum, augue purus
+                        <h2 class="headtextt fw-bold text-white mb-3">
+                        It's Cool to Be Kind
                         </h2>
-                        <p class="mb-4">
-                          Tincidunt laoreet leo, adipiscing taciti tempor.
-                          Primis senectus sapien, risus donec ad fusce augue
-                          interdum.
+                        <p class="bodytext mb-4">
+                          Bersama-sama mari kita lawan Bullying! <br/> Ayo kita berteman asik tanpa mengusik!
                         </p>
                       </div>
                     </div>
@@ -63,7 +62,7 @@ const Login = () => {
           <div class="col-md-6">
             <section class="position-relative py-4 py-xl-5">
               <div class="card mb-5">
-                <div class="card-body d-flex flex-column align-items-center">
+                <div class="cardbody d-flex flex-column align-items-center">
                   <div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-4">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

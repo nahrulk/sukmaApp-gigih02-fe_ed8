@@ -1,0 +1,16 @@
+h1 {
+    padding-top: 30px;
+    font-family: 'Lexend Deca', sans-serif;
+    text-align: center;
+    color: white;
+    margin-bottom: -10px !important;
+    font-size: 60px !important;
+    text-shadow: 3px 3px 2px rgb(0, 0, 0) !important;
+    font-weight: bolder !important;
+}
+
+
+a {
+    font-weight: bolder;
+    font-size: 20px;
+}
