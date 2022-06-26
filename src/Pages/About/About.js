@@ -1,23 +1,23 @@
 const About = () => {
   return (
     <div>
-      {/* Hero about */}
-      <h2 class="text-center">About Us</h2>
+      <h1 class="pb-5"> About Us</h1>
+
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <section class="py-4 py-xl-5">
+            <section class=" py-4 py-xl-3 rounded">
               <div class="container">
-                <div class="text-white bg-dark border rounded border-0 p-4 p-md-5">
-                  <h4 class="fw-bold text-white mb-3">Apa itu SUKMA?</h4>
-                  <p class="mb-4">
+                <div class="card p-4 p-md-5 text-dark">
+                  <h4 class="fw-bolder mb-3">SUKMA.</h4>
+                  <p class="fs-6 mb-4">
                     Berawal dari kekhawatiran dan semakin banyaknya angka
                     perundungan di Indonesia khususnya di wilayah yang vital
                     yaitu pendidikan. Kami sebagai team memutuskan untuk
                     menciptakan sebuah website yang kami harapkan nantinya, bisa
                     menjadi Safe-place bagi mereka yang menjadi korban. Dan juga
                     menjadi tempat dimana akan menyediakan berbagai macam
-                    informasi untuk mencegah semakin banyaknya perundungan di
+                    informasi untuk meningkatkan kesadaran banyaknya perundungan di
                     dunia pendidikan Indonesia.
                   </p>
                 </div>
@@ -25,52 +25,53 @@ const About = () => {
             </section>
           </div>
           <div class="col-md-6">
-            <section class="py-4 py-xl-5">
-              <div class="container">
-                <div class="text-white bg-dark border rounded border-0 p-4 p-md-5">
-                  <h4 class="fw-bold text-white mb-3">Visi dan Misi</h4>
-                  <p class="mb-4">
-                    Sukma adalah aplikasi berbasis website yang tim kami
-                    ciptakan demi mencegah angka perundungan atau pembullyan
-                    yang sangat marak terjadi khususnya di dunia pendidikan.
-                    Tentunya kami harapkan dengan diluncurkannya SUKMA, kami
-                    bisa menambahkan awareness kepada banyak orang dan bisa
-                    mengurangi angka perundungan di indonesia, khususnya di
-                    dunia pendidikan.
-                  </p>
+            <section class="py-4 py-xl-4 rounded">
+                <div class="container">
+                  <div class="card text-dark p-4 p-md-5">
+                    <h4 class="fw-bolder mb-3">Visi dan Misi</h4>
+                    <p class="fs-6 mb-4">
+                      Sukma adalah aplikasi berbasis website yang tim kami
+                      ciptakan untuk meningkatkan kesadaran remaja akan tingginya angka 
+                      perundungan atau pembullyan yang sangat marak terjadi khususnya di dunia 
+                      pendidikan. Tentunya kami harapkan dengan diluncurkannya SUKMA, kami
+                      bisa menambahkan awareness kepada banyak orang dan bisa
+                      mengurangi angka perundungan di indonesia, khususnya di dunia pendidikan.
+                    </p>
+                  </div>
                 </div>
-              </div>
             </section>
           </div>
         </div>
       </div>
-      {/* End Hero About */}
+
       {/* Our Team */}
       <div class="container d-grid py-4 py-xl-5">
         <div class="row mb-4 mb-lg-5">
           <div class="col-md-8 col-xl-6 text-center mx-auto">
-            <h2>Our Team</h2>
-            <p class="w-lg-50">
+            <h1 class="pb-5">Our Team</h1>
+            <p class="w-lg-50 text-dark fw-bold">
               Perkenalkan, kami dari SUKMA team! Kami selalu berusaha untuk
               melakukan yang terbaik demi mencapai tujuan kami. Inilah kami!
             </p>
           </div>
         </div>
+
+        
         <div class="row gy-4 row-cols-2 row-cols-md-4 justify-content-center align-items-center">
           <div class="col">
             <div class="card border-0 shadow-none">
-              <div class="card-body text-center d-flex flex-column align-items-center p-0">
+              <div class="card-body text-center d-flex flex-column align-items-center p-2">
                 <img
                   class="rounded-circle mb-3 fit-cover"
-                  width="130"
-                  height="130"
-                  src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png"
+                  width="100"
+                  height="100"
+                  src= {require("../About/erryck.jpg")}
                 />
-                <h5 class="fw-bold text-primary card-title mb-0">
-                  <strong>Erryck Norrys</strong>
+                <h5 class="fs-6 fw-bold text-primary card-title mb-2">
+                  <strong>Erryck Norrys</strong> KM_G2FE3068
                 </h5>
                 <p class="text-muted card-text mb-2">
-                  Project Manager, Front-end Engineer
+                  Project Manager,<br></br> Front-end Engineer
                 </p>
                 <ul class="list-inline fs-6 text-muted w-100 mb-0">
                   <li class="list-inline-item text-center">
@@ -119,19 +120,24 @@ const About = () => {
               </div>
             </div>
           </div>
+
+
           <div class="col">
             <div class="card border-0 shadow-none">
-              <div class="card-body text-center d-flex flex-column align-items-center p-0">
+              <div class="card-body text-center d-flex flex-column align-items-center p-2">
                 <img
                   class="rounded-circle mb-3 fit-cover"
-                  width="130"
-                  height="130"
-                  src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png"
+                  width="100"
+                  height="100"
+                  src= {require("../About/nahrul.jpg")}
                 />
-                <h5 class="fw-bold text-primary card-title mb-0">
-                  <strong>Nahrul Khayatullah</strong>
+                <h5 class="fs-6 fw-bold text-primary card-title mb-2">
+                  <strong>Nahrul Khayatullah</strong> KM_G2FE3027
                 </h5>
-                <p class="text-muted card-text mb-2">Front-End Engineer</p>
+                <p class="text-muted card-text mb-2">
+                  Front-End Engineer, <br></br> Back-end Engineer
+                </p>
+
                 <ul class="list-inline fs-6 text-muted w-100 mb-0">
                   <li class="list-inline-item text-center">
                     <div class="d-flex flex-column align-items-center">
@@ -183,18 +189,18 @@ const About = () => {
         <div class="row gy-4 row-cols-2 row-cols-md-4 justify-content-center align-items-center">
           <div class="col">
             <div class="card border-0 shadow-none">
-              <div class="card-body text-center d-flex flex-column align-items-center p-0">
+              <div class="card-body text-center d-flex flex-column align-items-center p-2">
                 <img
                   class="rounded-circle mb-3 fit-cover"
-                  width="130"
-                  height="130"
-                  src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png"
+                  width="100"
+                  height="100"
+                  src= {require("../About/shafa.jpg")}
                 />
-                <h5 class="fw-bold text-primary card-title mb-0">
-                  <strong>Shafa Salsabila Pribadi</strong>
+                <h5 class="fs-6 fw-bold text-primary card-title mb-2">
+                  <strong>Shafa Salsabila Pribadi</strong> <br></br> KM_G2FE4040
                 </h5>
                 <p class="text-muted card-text mb-2">
-                  UI/UX Designer, Front-End Engineer
+                  UI/UX Designer, <br></br>Front-End Engineer
                 </p>
                 <ul class="list-inline fs-6 text-muted w-100 mb-0">
                   <li class="list-inline-item text-center">
@@ -243,21 +249,21 @@ const About = () => {
               </div>
             </div>
           </div>
+
           <div class="col">
             <div class="card border-0 shadow-none">
-              <div class="card-body text-center d-flex flex-column align-items-center p-0">
+              <div class="card-body text-center d-flex flex-column align-items-center p-2">
                 <img
                   class="rounded-circle mb-3 fit-cover"
-                  width="130"
-                  height="130"
-                  src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png"
+                  width="100"
+                  height="100"
+                  src= {require("../About/lutfiah.jpg")}
                 />
-                <h5 class="fw-bold text-primary card-title mb-0">
-                  <strong>Luthfiah Ananda Putri</strong>
+                <h5 class="fs-6 fw-bold text-primary card-title mb-2">
+                  <strong>Luthfiah Ananda Putri</strong> <br></br>  KM_G2FE6240
                 </h5>
                 <p class="text-muted card-text mb-2">
-                  {" "}
-                  UI/UX Designer, Front-End Engineer
+                  Content Writer, <br></br>Front-End Engineer
                 </p>
                 <ul class="list-inline fs-6 text-muted w-100 mb-0">
                   <li class="list-inline-item text-center">
