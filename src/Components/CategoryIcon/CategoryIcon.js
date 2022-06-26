@@ -7,10 +7,11 @@ const CategoryIcon = () => {
         {/* Category */}
         <div class="row mb-5">
           <div class="col-md-8 col-xl-6 text-center mx-auto">
-            <h2>Category</h2>
+            <h1>Category</h1>
           </div>
         </div>
-        <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+
+        <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-2">
           <div class="col d-lg-flex justify-content-lg-center align-items-lg-center">
             <div class="text-center d-flex flex-column align-items-center align-items-xl-center">
               <div class="bs-icon-lg bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block mb-3 bs-icon lg">
@@ -27,7 +28,7 @@ const CategoryIcon = () => {
               <div class="px-3">
                 <h4>Cyber Bullying</h4>
                 <a href="/Cybercard">
-                  Learn More&nbsp;
+                  Flashcard&nbsp;
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="1em"
@@ -61,7 +62,7 @@ const CategoryIcon = () => {
               <div class="px-3">
                 <h4>Sexual Bullying</h4>
                 <a href="/Sexualcard">
-                  Learn More&nbsp;
+                  Flashcard&nbsp;
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="1em"
@@ -95,7 +96,7 @@ const CategoryIcon = () => {
               <div class="px-3">
                 <h4>Physical Bullying</h4>
                 <a href="/Physicalcard">
-                  Learn More&nbsp;
+                  Flashcard&nbsp;
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="1em"
@@ -129,7 +130,7 @@ const CategoryIcon = () => {
               <div class="px-3">
                 <h4>Verbal Bullying</h4>
                 <a href="/Verbalcard">
-                  Learn More&nbsp;
+                  Flashcard&nbsp;
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="1em"
