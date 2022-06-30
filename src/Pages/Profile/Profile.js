@@ -1,16 +1,22 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import FavCard from "../../Components/FavCard/FavCard";
-import { dbLive } from "../../firebase";
+import { dbLive, dbStore } from "../../firebase";
 import { uid } from "uid";
 import { ref, onValue, remove } from "firebase/database";
 import "./Profile.css";
 import { AuthContext } from "../../Context/AuthContext";
+import { collection, getDocs } from "firebase/firestore";
 
 const Profile = () => {
   const [favs, setFavs] = useState([]);
   const { currentUser } = useContext(AuthContext);
   let { userFav } = useState([]);
+
+  //   Database Variable
+  const usersCollectionRef = collection(dbStore, "users");
+  const [users, setUsers] = useState([]); // Kumpulan data user
+  let { userProfiles } = useState([]); // tempat nyimpen user yang terfilter
 
   useEffect(() => {
     onValue(ref(dbLive), (snapshot) => {
@@ -24,11 +30,26 @@ const Profile = () => {
     });
   }, []);
 
+  // get data from users collection
+  useEffect(() => {
+    const getUsers = async () => {
+      const data = await getDocs(usersCollectionRef);
+      setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+
+    getUsers();
+  }, []);
+
+  // console.log(users);
+
   const deleteFav = (item) => {
     remove(ref(dbLive, `/${item.uuid}`));
   };
 
-  userFav = favs.filter((item) => item.userId === currentUser.uid);
+  userFav = favs.filter((item) => item.userId === currentUser.uid); //data card
+  userProfiles = users.filter((item) => item.userId === currentUser.uid); // data user
+
+  console.log(userProfiles);
 
   return (
     <div>
@@ -40,18 +61,33 @@ const Profile = () => {
               <div class="card-body ">
                 <div class=" border-right">
                   <div class="d-flex flex-column align-items-center text-center ">
-                    <img
-                      class="rounded-circle "
-                      width="100px"
-                      src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
-                    />
-                    <span class="font-weight-bold fw-bold fs-5">Edogaru</span>
-                    <span class="fs-6 fst-italic">@Edogaru</span>
-                    {!currentUser ? (
-                      <span class="text-black-50">Email</span>
-                    ) : (
-                      <span class="text-black-50">{currentUser?.email}</span>
-                    )}
+                    {userProfiles.map((user) => (
+                      <div>
+                        <img
+                          class="rounded-circle "
+                          width="100px"
+                          src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+                        />
+                        {!currentUser ? (
+                          <div>
+                            <span class="font-weight-bold fw-bold fs-5">
+                              Anonim
+                            </span>
+                            <br />
+                            <span class="fs-6 fst-italic">@anonim</span>
+                          </div>
+                        ) : (
+                          <div>
+                            <span class="font-weight-bold fw-bold fs-5">
+                              {user.fullname}
+                            </span>
+                            <br />
+                            <span class="fs-6 fst-italic">{user.username}</span>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+
                     <Link to="/update">
                       <div>
                         <button className="btn btn-primary">Setting</button>

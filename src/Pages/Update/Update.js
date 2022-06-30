@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import { dbStore } from "../../firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { addDoc, collection, getDocs } from "firebase/firestore";
 
 const Update = () => {
   const [file, setFile] = useState("");
@@ -11,7 +11,8 @@ const Update = () => {
 
   //   Database Variable
   const usersCollectionRef = collection(dbStore, "users");
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([]); // Kumpulan data user
+  let { userProfiles } = useState([]); // tempat nyimpen user yang terfilter
 
   useEffect(() => {
     const getUsers = async () => {
@@ -22,11 +23,23 @@ const Update = () => {
     getUsers();
   }, []);
 
-  console.log(users);
+  // console.log(users);
 
-  const handleAdd = (e) => {
+  const handleAdd = async (e) => {
     e.preventDefault();
+    await addDoc(usersCollectionRef, {
+      fullname: fullname,
+      username: username,
+      userId: currentUser.uid,
+    });
   };
+
+  userProfiles = users.filter((item) => item.userId === currentUser.uid); // data user
+  let disableAddTrue = userProfiles.find((fa) => fa.userId === currentUser.uid);
+
+  const saveDisabled = disableAddTrue ? true : false;
+
+  // console.log(userProfiles);
 
   return (
     <div class="container rounded bg-white mt-5 mb-5">
@@ -84,6 +97,7 @@ const Update = () => {
                 class="btn btn-primary profile-button"
                 type="submit"
                 onClick={handleAdd}
+                disabled={saveDisabled}
               >
                 Save Profile
               </button>
