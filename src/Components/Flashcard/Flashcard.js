@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Flashcard from "./Card/Card";
 import PropTypes from "prop-types";
 import "./Flashcard.css";
@@ -13,9 +13,11 @@ const Flashcards = (props) => {
   const [fav, setFav] = useState("");
   const [flipped, setFlipped] = useState(false);
   const [current, setCurrent] = useState(0);
+
   const [favs, setFavs] = useState([]);
   const { currentUser } = useContext(AuthContext);
   let { userFav } = useState([]);
+
   const { items } = props;
 
   const handleClick = () => {
@@ -30,6 +32,18 @@ const Flashcards = (props) => {
   function nextCard() {
     setCurrent(current + 1);
   }
+
+  useEffect(() => {
+    onValue(ref(dbLive), (snapshot) => {
+      setFavs([]);
+      const data = snapshot.val();
+      if (data !== null) {
+        Object.values(data).map((fav) => {
+          setFavs((oldArray) => [...oldArray, fav]);
+        });
+      }
+    });
+  }, []);
 
   const writeToFav = () => {
     const uuid = uid();
