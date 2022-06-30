@@ -1,20 +1,34 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import FavCard from "../../Components/FavCard/FavCard";
-import { auth } from "../../firebase";
-import { useStateValue } from "../../StateProvider";
+import { dbLive } from "../../firebase";
+import { uid } from "uid";
+import { ref, onValue, remove } from "firebase/database";
 import "./Profile.css";
+import { AuthContext } from "../../Context/AuthContext";
 
 const Profile = () => {
-  const [{ fav, user }, dispatch] = useStateValue();
+  const [favs, setFavs] = useState([]);
+  const { currentUser } = useContext(AuthContext);
+  let { userFav } = useState([]);
 
-  const handleAuthenticaton = () => {
-    if (user) {
-      auth.signOut();
-    }
+  useEffect(() => {
+    onValue(ref(dbLive), (snapshot) => {
+      setFavs([]);
+      const data = snapshot.val();
+      if (currentUser && data !== null) {
+        Object.values(data).map((fav) => {
+          setFavs((oldArray) => [...oldArray, fav]);
+        });
+      }
+    });
+  }, []);
+
+  const deleteFav = (item) => {
+    remove(ref(dbLive, `/${item.uuid}`));
   };
 
-  // console.log(user.email);
+  userFav = favs.filter((item) => item.userId === currentUser.uid);
 
   return (
     <div>
@@ -22,28 +36,26 @@ const Profile = () => {
         <div class="row">
           <div class="col.md-4 mt-1">
             <div class="card">
-            <h1>PROFILE</h1>
+              <h1>PROFILE</h1>
               <div class="card-body ">
-                {/* <img
-                  src="user picture.jpg"
-                  class="rounded-circle"
-                  width="150"
-                /> */}
-                <div class="mt-6">
-                  {/* <h3>Username</h3> */}
-                  {!user ? <h4>Guest</h4> : <h4>{user?.email}</h4>}
-
-                  <div
-                    id="btn-container"
-                    className="handleAuthenticaton"
-                    onClick={handleAuthenticaton}
-                  > <br></br>
-                    <Link to={!user && "/login"}>
-                      {!user ? (
-                        <button className="btn btn-primary">Log In</button>
-                      ) : (
-                        <button className="btn btn-danger">Log out</button>
-                      )}
+                <div class=" border-right">
+                  <div class="d-flex flex-column align-items-center text-center ">
+                    <img
+                      class="rounded-circle "
+                      width="100px"
+                      src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+                    />
+                    <span class="font-weight-bold fw-bold fs-5">Edogaru</span>
+                    <span class="fs-6 fst-italic">@Edogaru</span>
+                    {!currentUser ? (
+                      <span class="text-black-50">Email</span>
+                    ) : (
+                      <span class="text-black-50">{currentUser?.email}</span>
+                    )}
+                    <Link to="/update">
+                      <div>
+                        <button className="btn btn-primary">Setting</button>
+                      </div>
                     </Link>
                   </div>
                 </div>
@@ -51,12 +63,21 @@ const Profile = () => {
             </div>
           </div>
 
-            <h1>FAVORITE CARDS ({fav?.length})</h1>
-            <div class="flipcard">
-              {fav.map((item) => (
-                <FavCard front={item.front.display} id={item.id} />
-              ))}
-            </div>
+          <h1>FAVORITE CARDS ({userFav?.length})</h1>
+          <div class="flipcard">
+            {userFav.map((item) => (
+              <div class="flip-front border-primary">
+                <h2 key={item.userId}>{item.fav.front.display}</h2>
+                <span>{item.userId}</span>
+                <button
+                  className="btn btn-primary text-white "
+                  onClick={() => deleteFav(item)}
+                >
+                  Hapus
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

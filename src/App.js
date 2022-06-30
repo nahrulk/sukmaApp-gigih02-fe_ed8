@@ -8,39 +8,15 @@ import Login from "./Pages/Login/Login";
 import Home from "./Pages/Home/Home";
 import Cyberpage from "./Pages/Flashcard/Cyberpage";
 import Profile from "./Pages/Profile/Profile";
-import { auth } from "./firebase";
-import { useEffect } from "react";
-import { useStateValue } from "./StateProvider";
+
 import Sexualpage from "./Pages/Flashcard/Sexualpage";
 import Physicalpage from "./Pages/Flashcard/Physicalpage";
 import Verbalpage from "./Pages/Flashcard/Verbalpage";
-
+import { AuthContext } from "./Context/AuthContext";
+import { useContext } from "react";
 
 function App() {
-  const [{}, dispatch] = useStateValue();
-
-  useEffect(() => {
-    // will only run once when the app component loads...
-
-    auth.onAuthStateChanged((authUser) => {
-      console.log("THE USER IS >>> ", authUser);
-
-      if (authUser) {
-        // the user just logged in / the user was logged in
-
-        dispatch({
-          type: "SET_USER",
-          user: authUser,
-        });
-      } else {
-        // the user is logged out
-        dispatch({
-          type: "SET_USER",
-          user: null,
-        });
-      }
-    });
-  }, []);
+  const { currentUser } = useContext(AuthContext);
 
   return (
     <body>

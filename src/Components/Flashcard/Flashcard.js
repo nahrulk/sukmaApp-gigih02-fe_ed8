@@ -1,15 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Flashcard from "./Card/Card";
 import PropTypes from "prop-types";
 import "./Flashcard.css";
-import { useStateValue } from "../../StateProvider";
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Button } from "@mui/material";
+import { dbLive } from "../../firebase";
+import { uid } from "uid";
+import { set, ref, onValue } from "firebase/database";
+import { AuthContext } from "../../Context/AuthContext";
 
 const Flashcards = (props) => {
-  const [{ fav }, dispatch] = useStateValue();
+  const [fav, setFav] = useState("");
   const [flipped, setFlipped] = useState(false);
   const [current, setCurrent] = useState(0);
+  const [favs, setFavs] = useState([]);
+  const { currentUser } = useContext(AuthContext);
+  let { userFav } = useState([]);
   const { items } = props;
 
   const handleClick = () => {
@@ -25,21 +31,26 @@ const Flashcards = (props) => {
     setCurrent(current + 1);
   }
 
-  const addToFav = () => {
-    // dispatch the item into the data layer
-    dispatch({
-      type: "ADD_TO_FAV",
-      item: props.items[current],
+  const writeToFav = () => {
+    const uuid = uid();
+    const fav = props.items[current];
+    const userId = currentUser.uid;
+    set(ref(dbLive, `/${uuid}`), {
+      userId,
+      fav,
+      uuid,
     });
+
+    setFav("");
   };
 
-  let storeFav = fav.find((favs) => favs.id === props.items[current].id); // melakukan mapping untuk mengecek apakah ada data atau tidak
+  userFav = favs.filter((item) => item.userId === currentUser.uid);
+
+  let storeFav = userFav.find((fa) => fa.fav.id === props.items[current].id); // melakukan mapping untuk mengecek apakah ada data atau tidak
 
   const favDisabled = storeFav ? true : false;
 
   const loading = <div className="loading">Loading flashcard content...</div>;
-
-  // console.log(fav.front);
 
   const cards = items.map((item) => {
     return (
@@ -51,12 +62,6 @@ const Flashcards = (props) => {
       />
     );
   });
-
-  // console.log(fav);
-  // console.log(items);
-  // console.log(props.items[1]);
-  // console.log(fav.id === items.id);
-  // console.log(storeFav);
 
   return (
     <div>
@@ -72,14 +77,18 @@ const Flashcards = (props) => {
             Previous
           </button>
         )}
-        
         <Button
           disabled={favDisabled}
-          onClick={addToFav}
-          size="large" variant="contained" style={{ backgroundColor: "#fafafa", color: 'black',}} 
-          startIcon={<FavoriteIcon style={{ color: 'red' }} />}> Favorite
-        </Button> {/* ADD LOVE UI BUTTON FROM MUI */}
-
+          onClick={writeToFav}
+          size="large"
+          variant="contained"
+          style={{ backgroundColor: "#fafafa", color: "black" }}
+          startIcon={<FavoriteIcon style={{ color: "red" }} />}
+        >
+          {" "}
+          Favorite
+        </Button>{" "}
+        {/* ADD LOVE UI BUTTON FROM MUI */}
         {current < items.length - 1 ? (
           <button onClick={nextCard}>Next</button>
         ) : (

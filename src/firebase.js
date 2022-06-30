@@ -1,10 +1,14 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import "firebase/compat/auth";
+import { getDatabase } from "firebase/database";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAE8E9jqLXsGh4rDwxpM78VuCB5gSG6bmA",
   authDomain: "sukma-app-a5a73.firebaseapp.com",
+  databaseURL:
+    "https://sukma-app-a5a73-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "sukma-app-a5a73",
   storageBucket: "sukma-app-a5a73.appspot.com",
   messagingSenderId: "272093168250",
@@ -13,7 +17,9 @@ const firebaseConfig = {
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-const db = firebaseApp.firestore();
+const dbStore = firebaseApp.firestore();
 const auth = firebase.auth();
+const dbLive = getDatabase(firebaseApp);
+const storage = getStorage(firebaseApp);
 
-export { db, auth };
+export { dbStore, dbLive, auth, storage };
