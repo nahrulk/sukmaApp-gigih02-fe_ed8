@@ -34,6 +34,7 @@ const Login = () => {
         // Register
         const user = userCredential.user;
         dispatch({ type: "LOGIN", payload: user });
+        history.push("/");
       })
       .catch((error) => alert(error.message));
   };
