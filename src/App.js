@@ -14,6 +14,7 @@ import Physicalpage from "./Pages/Flashcard/Physicalpage";
 import Verbalpage from "./Pages/Flashcard/Verbalpage";
 import { AuthContext } from "./Context/AuthContext";
 import { useContext } from "react";
+import Update from "./Pages/Update/Update";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -32,6 +33,9 @@ function App() {
             </Route>
             <Route path="/login">
               <Login />
+            </Route>
+            <Route path="/update">
+              <Update />
             </Route>
             <Route path="/profile">
               <Profile />

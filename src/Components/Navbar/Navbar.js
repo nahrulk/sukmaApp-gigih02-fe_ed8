@@ -9,6 +9,7 @@ import { AuthContext } from "../../Context/AuthContext";
 
 const Navbar = () => {
   const { currentUser } = useContext(AuthContext);
+  const { dispatch } = useContext(AuthContext);
 
   const [favs, setFavs] = useState([]);
   let { userFav } = useState([]);
@@ -25,7 +26,7 @@ const Navbar = () => {
     });
   }, []);
 
-  userFav = favs.filter((item) => item.userId === currentUser.uid);
+  userFav = favs.filter((item) => item.userId === currentUser?.uid);
 
   return (
     <div>
@@ -104,7 +105,10 @@ const Navbar = () => {
               </ul>
 
               <Link to="/login">
-                <div className="handleAuthenticaton">
+                <div
+                  className="handleAuthenticaton"
+                  onClick={() => dispatch({ type: "LOGOUT" })}
+                >
                   {!currentUser ? (
                     <a class="btn btn-primary ms-md-2" role="button" href="#">
                       Login
