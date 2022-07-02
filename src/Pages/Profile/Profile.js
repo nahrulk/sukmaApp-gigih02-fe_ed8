@@ -65,7 +65,8 @@ const Profile = () => {
                       <div>
                         <img
                           class="rounded-circle "
-                          width="100px"
+                          width="120px"
+                          height="120px"
                           src={user.img}
                         />
                         {!currentUser ? (
@@ -104,7 +105,7 @@ const Profile = () => {
             {userFav.map((item) => (
               <div class="flip-front border-primary">
                 <h2 key={item.userId}>{item.fav.front.display}</h2>
-                <span>{item.userId}</span>
+                {/* <span>{item.userId}</span> */}
                 <button
                   className="btn btn-primary text-white "
                   onClick={() => deleteFav(item)}
