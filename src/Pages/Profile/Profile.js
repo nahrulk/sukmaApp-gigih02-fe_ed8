@@ -49,8 +49,6 @@ const Profile = () => {
   userFav = favs.filter((item) => item.userId === currentUser.uid); //data card
   userProfiles = users.filter((item) => item.userId === currentUser.uid); // data user
 
-  console.log(userProfiles);
-
   return (
     <div>
       <div class="container">
@@ -65,8 +63,7 @@ const Profile = () => {
                       <div>
                         <img
                           class="rounded-circle "
-                          width="120px"
-                          height="120px"
+                          width="100px"
                           src={user.img}
                         />
                         {!currentUser ? (
@@ -103,9 +100,25 @@ const Profile = () => {
           <h1>FAVORITE CARDS ({userFav?.length})</h1>
           <div class="flipcard">
             {userFav.map((item) => (
-              <div class="flip-front border-primary">
-                <h2 key={item.userId}>{item.fav.front.display}</h2>
-                {/* <span>{item.userId}</span> */}
+              // <div class="flip-front border-primary">
+              //   <h2 key={item.userId}>{item.fav.front.display}</h2>
+              //   <span>{item.userId}</span>
+              //   <button
+              //     className="btn btn-primary text-white "
+              //     onClick={() => deleteFav(item)}
+              //   >
+              //     Hapus
+              //   </button>
+              // </div>
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <h2 key={item.userId}>{item.fav.front.display}</h2>
+                  </div>
+                  <div class="flip-card-back">
+                    <p>{item.fav.back.display}</p>
+                  </div>
+                </div>
                 <button
                   className="btn btn-primary text-white "
                   onClick={() => deleteFav(item)}
