@@ -1,13 +1,30 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthContext";
-import { dbStore } from "../../firebase";
-import { addDoc, collection, getDocs } from "firebase/firestore";
+import { dbStore, storage } from "../../firebase";
+import {
+  addDoc,
+  collection,
+  doc,
+  getDocs,
+  updateDoc,
+} from "firebase/firestore";
+import { useHistory } from "react-router-dom";
+import { uid } from "uid";
+import {
+  getDownloadURL,
+  uploadBytes,
+  ref as sRef,
+  listAll,
+} from "firebase/storage";
+import { ref } from "firebase/database";
 
 const Update = () => {
-  const [file, setFile] = useState("");
+  const [imageUpload, setImageUpload] = useState(null);
+  const [imageUrls, setImageUrls] = useState("");
   const [username, setUsername] = useState("");
   const [fullname, setFullname] = useState("");
   const { currentUser } = useContext(AuthContext);
+  const history = useHistory();
 
   //   Database Variable
   const usersCollectionRef = collection(dbStore, "users");
@@ -23,14 +40,31 @@ const Update = () => {
     getUsers();
   }, []);
 
-  // console.log(users);
+  // console.log(imageUrls);
 
   const handleAdd = async (e) => {
     e.preventDefault();
-    await addDoc(usersCollectionRef, {
-      fullname: fullname,
-      username: username,
-      userId: currentUser.uid,
+    try {
+      await addDoc(usersCollectionRef, {
+        fullname: fullname,
+        username: username,
+        userId: currentUser.uid,
+        img: imageUrls,
+      });
+
+      history.push("/profile");
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
+  const handleUpload = async (e, id) => {
+    const uuid = uid();
+    const imageRef = sRef(storage, `images/${imageUpload?.name + uuid}`);
+    uploadBytes(imageRef, imageUpload).then((snapshot) => {
+      getDownloadURL(snapshot.ref).then((url) => {
+        setImageUrls((prev) => [...prev, url]);
+      });
     });
   };
 
@@ -39,24 +73,19 @@ const Update = () => {
 
   const saveDisabled = disableAddTrue ? true : false;
 
-  // console.log(userProfiles);
-
   return (
     <div class="container rounded bg-white mt-5 mb-5">
       <div class="row">
         <div class="col-md-3 border-right">
           <div class="d-flex flex-column align-items-center text-center p-3 py-5">
             <label htmlFor="file">
-              <img class="rounded-circle mt-5" width="150px" src={file} />
+              <img class="rounded-circle mt-5" width="150px" src={imageUrls} />
             </label>
-            {/* style={{display:"none"}} */}
-            <span class="font-weight-bold">Edogaru</span>
-            <span class="text-black-50">edogaru@mail.com.my</span>
             <input
               class="upload-image"
               type="file"
               id="file"
-              onChange={(e) => setFile(e.target.files[0])}
+              onChange={(e) => setImageUpload(e.target.files[0])}
             />{" "}
           </div>
         </div>
@@ -99,7 +128,14 @@ const Update = () => {
                 onClick={handleAdd}
                 disabled={saveDisabled}
               >
-                Save Profile
+                add Profile
+              </button>
+              <button
+                class="btn btn-info profile-button"
+                type="submit"
+                onClick={handleUpload}
+              >
+                Upload photo
               </button>
             </div>
           </div>
