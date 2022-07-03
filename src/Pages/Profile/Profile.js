@@ -7,6 +7,8 @@ import { ref, onValue, remove } from "firebase/database";
 import "./Profile.css";
 import { AuthContext } from "../../Context/AuthContext";
 import { collection, getDocs } from "firebase/firestore";
+import { Button } from "@mui/material";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const Profile = () => {
   const [favs, setFavs] = useState([]);
@@ -88,7 +90,7 @@ const Profile = () => {
 
                     <Link to="/update">
                       <div>
-                        <button className="btn btn-primary">Setting</button>
+                        <button className="buttonsetting btn btn-primary">Setting</button>
                       </div>
                     </Link>
                   </div>
@@ -100,17 +102,7 @@ const Profile = () => {
           <h1>FAVORITE CARDS ({userFav?.length})</h1>
           <div class="flipcard">
             {userFav.map((item) => (
-              // <div class="flip-front border-primary">
-              //   <h2 key={item.userId}>{item.fav.front.display}</h2>
-              //   <span>{item.userId}</span>
-              //   <button
-              //     className="btn btn-primary text-white "
-              //     onClick={() => deleteFav(item)}
-              //   >
-              //     Hapus
-              //   </button>
-              // </div>
-              <div class="flip-card">
+              <div class="flashcard  flip-card">
                 <div class="flip-card-inner">
                   <div class="flip-card-front">
                     <h2 key={item.userId}>{item.fav.front.display}</h2>
@@ -119,12 +111,16 @@ const Profile = () => {
                     <p>{item.fav.back.display}</p>
                   </div>
                 </div>
-                <button
-                  className="btn btn-primary text-white "
+                <Button
+                  className="button "
                   onClick={() => deleteFav(item)}
+                  size="large"
+                  variant="contained"
+                  style={{ backgroundColor: "#fafafa", color: "black" }}
+                  startIcon={<DeleteIcon style={{ color: "white" }} />}
                 >
-                  Hapus
-                </button>
+                  Delete Card
+                </Button>
               </div>
             ))}
           </div>
