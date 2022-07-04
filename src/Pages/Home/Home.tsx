@@ -1,6 +1,6 @@
 import React from "react";
 import CategoryIcon from "../../Components/CategoryIcon/CategoryIcon";
-import News from "../../Components/News/News";
+import Guidance from "../../Components/Guidance/Guidance";
 import "./Home.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Sexualpage from "../Flashcard/Sexualpage";
@@ -69,7 +69,7 @@ const Home = () => {
           <Verbalpage />
         </Route>
       </Switch>
-      <News />
+      <Guidance />
     </div>
   );
 };

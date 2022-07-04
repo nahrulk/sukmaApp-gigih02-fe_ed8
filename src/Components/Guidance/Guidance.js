@@ -1,9 +1,9 @@
 import React from "react";
-import "./News.css";
-const News = () => {
+import "./Guidance.css";
+const Guidance = () => {
   return (
     <div>
-      {/* News */}
+      {/* Guidance */}
       <div class="container py-4 py-xl-5">
         <div class="row mb-5">
           <div class="col-md-8 col-xl-6 text-center mx-auto pb-5">
@@ -16,7 +16,7 @@ const News = () => {
               <div class="w-100">
                 <img
                   class="rounded img-fluid d-block w-100 fit-cover"
-                  src= {require("../News/1.jpg")}
+                  src= {require("../Guidance/1.jpg")}
                 />
               </div>
               <div class="py-4 py-lg-0 px-lg-4">
@@ -32,7 +32,7 @@ const News = () => {
               <div class="w-100">
                 <img
                   class="rounded img-fluid d-block w-100 fit-cover"
-                  src= {require("../News/2.jpg")}
+                  src= {require("../Guidance/2.jpg")}
                 />
               </div>
               <div class="py-4 py-lg-0 px-lg-4">
@@ -48,7 +48,7 @@ const News = () => {
               <div class="w-100">
                 <img
                   class="rounded img-fluid d-block w-100 fit-cover"
-                  src= {require("../News/3.jpg")}
+                  src= {require("../Guidance/3.jpg")}
                 />
               </div>
               <div class="py-4 py-lg-0 px-lg-4">
@@ -64,7 +64,7 @@ const News = () => {
               <div class="w-100">
                 <img
                   class="rounded img-fluid d-block w-100 fit-cover"
-                  src= {require("../News/4.jpg")}
+                  src= {require("../Guidance/4.jpg")}
                 />
               </div>
               <div class="py-4 py-lg-0 px-lg-4">
@@ -77,9 +77,9 @@ const News = () => {
           </div>
         </div>
       </div>
-      {/* end News */}
+      {/* end Guidance */}
     </div>
   );
 };
 
-export default News;
+export default Guidance;
