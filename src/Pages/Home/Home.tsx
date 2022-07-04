@@ -2,6 +2,11 @@ import React from "react";
 import CategoryIcon from "../../Components/CategoryIcon/CategoryIcon";
 import News from "../../Components/News/News";
 import "./Home.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Sexualpage from "../Flashcard/Sexualpage";
+import Physicalpage from "../Flashcard/Physicalpage";
+import Verbalpage from "../Flashcard/Verbalpage";
+import Cyberpage from "../Flashcard/Cyberpage";
 
 const Home = () => {
   return (
@@ -50,6 +55,20 @@ const Home = () => {
         </div>
       </div>
       <CategoryIcon />
+      <Switch>
+        <Route path="/Cybercard">
+          <Cyberpage />
+        </Route>
+        <Route path="/Sexualcard">
+          <Sexualpage />
+        </Route>
+        <Route path="/Physicalcard">
+          <Physicalpage />
+        </Route>
+        <Route path="/Verbalcard">
+          <Verbalpage />
+        </Route>
+      </Switch>
       <News />
     </div>
   );
