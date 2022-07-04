@@ -112,7 +112,7 @@ const Profile = () => {
                   </div>
                 </div>
                 <Button
-                  className="button "
+                  className="button-delete"
                   onClick={() => deleteFav(item)}
                   size="large"
                   variant="contained"
