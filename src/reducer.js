@@ -4,7 +4,7 @@ export const initialState = {
 };
 
 const reducer = (state, action) => {
-    // console.log(action);
+    // console.log(action); delete all console log and unused code, please check another files
     switch (action.type) {
         case 'ADD_TO_FAV':
             return {
