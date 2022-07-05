@@ -1,12 +1,11 @@
 {
-    "compilerOptions": {
-      "jsx": "react",
-      // ...
-      "rootDir": "src",
-      "outDir": "build",
-      "esModuleInterop": true,
-      "allowSyntheticDefaultImports": true,
-      // ...
-    },
-   
+  "compilerOptions": {
+    "jsx": "react",
+    // ...
+    "rootDir": "src",
+    "outDir": "build",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+    // ...
   }
+}

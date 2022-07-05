@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import classnames from "classnames";
-import "./Card.css";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import classnames from 'classnames';
+import './Card.css';
 
 const Content = (props) => {
   const { type, display } = props;
   switch (type) {
-    case "string":
+    case 'string':
       return display.length > 100 ? (
         <p className="Flashcard__text">{display}</p>
       ) : (
@@ -28,28 +28,19 @@ const Flashcard = (props) => {
 
   return (
     <div
-      className={classnames("Flashcard", {
+      className={classnames('Flashcard', {
         Flashcard__top: showFront,
-        "Flashcard--flipped": !showFront,
+        'Flashcard--flipped': !showFront
       })}
-      onClick={handleClick}
-    >
+      onClick={handleClick}>
       <div className="Flashcard__content">
         {showFront ? (
           <div className="Flashcard--front">
-            <Content
-              type={front.type}
-              display={front.display}
-              options={front.options}
-            />
+            <Content type={front.type} display={front.display} options={front.options} />
           </div>
         ) : (
           <div className="Flashcard--back">
-            <Content
-              type={back.type}
-              display={back.display}
-              options={back.options}
-            />
+            <Content type={back.type} display={back.display} options={back.options} />
           </div>
         )}
       </div>
@@ -59,20 +50,20 @@ const Flashcard = (props) => {
 
 Flashcard.propTypes = {
   front: PropTypes.shape({
-    type: PropTypes.oneOf(["string"]),
+    type: PropTypes.oneOf(['string']),
     display: PropTypes.string,
     options: PropTypes.shape({
-      alt: PropTypes.string,
-    }),
+      alt: PropTypes.string
+    })
   }).isRequired,
   back: PropTypes.shape({
-    type: PropTypes.oneOf(["string"]),
+    type: PropTypes.oneOf(['string']),
     display: PropTypes.string,
     options: PropTypes.shape({
-      alt: PropTypes.string,
-    }),
+      alt: PropTypes.string
+    })
   }).isRequired,
-  handleClick: PropTypes.func,
+  handleClick: PropTypes.func
 };
 
 export default Flashcard;

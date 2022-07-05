@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const About = () => {
   return (
@@ -13,14 +13,12 @@ const About = () => {
                 <div className="card p-4 p-md-5 text-dark">
                   <h4 className="fw-bolder mb-3">SUKMA.</h4>
                   <p className="fs-5 mb-4">
-                    Berawal dari kekhawatiran dan semakin banyaknya angka
-                    perundungan di Indonesia khususnya di wilayah yang vital
-                    yaitu pendidikan. Kami sebagai team memutuskan untuk
-                    menciptakan sebuah website yang kami harapkan nantinya, bisa
-                    menjadi Safe-place bagi mereka yang menjadi korban. Dan juga
-                    menjadi tempat dimana akan menyediakan berbagai macam
-                    informasi untuk meningkatkan kesadaran banyaknya perundungan di
-                    dunia pendidikan Indonesia.
+                    Berawal dari kekhawatiran dan semakin banyaknya angka perundungan di Indonesia
+                    khususnya di wilayah yang vital yaitu pendidikan. Kami sebagai team memutuskan
+                    untuk menciptakan sebuah website yang kami harapkan nantinya, bisa menjadi
+                    Safe-place bagi mereka yang menjadi korban. Dan juga menjadi tempat dimana akan
+                    menyediakan berbagai macam informasi untuk meningkatkan kesadaran banyaknya
+                    perundungan di dunia pendidikan Indonesia.
                   </p>
                 </div>
               </div>
@@ -28,19 +26,18 @@ const About = () => {
           </div>
           <div className="col-md-6">
             <section className="py-4 py-xl-4 rounded">
-                <div className="container">
-                  <div className="card text-dark p-4 p-md-5">
-                    <h4 className="fw-bolder mb-3">Visi dan Misi</h4>
-                    <p className="fs-5 mb-4">
-                      Sukma adalah aplikasi berbasis website yang tim kami
-                      ciptakan untuk meningkatkan kesadaran remaja akan tingginya angka 
-                      perundungan atau pembullyan yang sangat marak terjadi khususnya di dunia 
-                      pendidikan. Tentunya kami harapkan dengan diluncurkannya SUKMA, kami
-                      bisa menambahkan awareness kepada banyak orang dan bisa
-                      mengurangi angka perundungan di indonesia, khususnya di dunia pendidikan.
-                    </p>
-                  </div>
+              <div className="container">
+                <div className="card text-dark p-4 p-md-5">
+                  <h4 className="fw-bolder mb-3">Visi dan Misi</h4>
+                  <p className="fs-5 mb-4">
+                    Sukma adalah aplikasi berbasis website yang tim kami ciptakan untuk meningkatkan
+                    kesadaran remaja akan tingginya angka perundungan atau pembullyan yang sangat
+                    marak terjadi khususnya di dunia pendidikan. Tentunya kami harapkan dengan
+                    diluncurkannya SUKMA, kami bisa menambahkan awareness kepada banyak orang dan
+                    bisa mengurangi angka perundungan di indonesia, khususnya di dunia pendidikan.
+                  </p>
                 </div>
+              </div>
             </section>
           </div>
         </div>
@@ -52,13 +49,12 @@ const About = () => {
           <div className="col-md-8 col-xl-6 text-center mx-auto">
             <h1 className="pb-5">Our Team</h1>
             <p className="fs-5 w-lg-50 text-dark fw-bold">
-              Perkenalkan, kami dari SUKMA team! Kami selalu berusaha untuk
-              melakukan yang terbaik demi mencapai tujuan kami. Inilah kami!
+              Perkenalkan, kami dari SUKMA team! Kami selalu berusaha untuk melakukan yang terbaik
+              demi mencapai tujuan kami. Inilah kami!
             </p>
           </div>
         </div>
 
-        
         <div className="row gy-4 row-cols-2 row-cols-md-4 justify-content-center align-items-center">
           <div className="col">
             <div className="card border-0 shadow-none">
@@ -67,7 +63,7 @@ const About = () => {
                   className="rounded-circle mb-3 fit-cover"
                   width="100"
                   height="100"
-                  src= {require("../About/erryck.jpg")}
+                  src={require('../About/erryck.jpg')}
                 />
                 <h5 className="fs-6 fw-bold text-primary card-title mb-2">
                   <strong>Erryck Norrys</strong> KM_G2FE3068
@@ -123,7 +119,6 @@ const About = () => {
             </div>
           </div>
 
-
           <div className="col">
             <div className="card border-0 shadow-none">
               <div className="card-body text-center d-flex flex-column align-items-center p-2">
@@ -131,7 +126,7 @@ const About = () => {
                   className="rounded-circle mb-3 fit-cover"
                   width="100"
                   height="100"
-                  src= {require("../About/nahrul.jpg")}
+                  src={require('../About/nahrul.jpg')}
                 />
                 <h5 className="fs-6 fw-bold text-primary card-title mb-2">
                   <strong>Nahrul Khayatullah</strong> KM_G2FE3027
@@ -196,7 +191,7 @@ const About = () => {
                   className="rounded-circle mb-3 fit-cover"
                   width="100"
                   height="100"
-                  src= {require("../About/shafa.jpg")}
+                  src={require('../About/shafa.jpg')}
                 />
                 <h5 className="fs-6 fw-bold text-primary card-title mb-2">
                   <strong>Shafa Salsabila Pribadi</strong> <br></br> KM_G2FE4040
@@ -259,10 +254,10 @@ const About = () => {
                   className="rounded-circle mb-3 fit-cover"
                   width="100"
                   height="100"
-                  src= {require("../About/lutfiah.jpg")}
+                  src={require('../About/lutfiah.jpg')}
                 />
                 <h5 className="fs-6 fw-bold text-primary card-title mb-2">
-                  <strong>Luthfiah Ananda Putri</strong> <br></br>  KM_G2FE6240
+                  <strong>Luthfiah Ananda Putri</strong> <br></br> KM_G2FE6240
                 </h5>
                 <p className="text-muted card-text mb-2">
                   Content Writer, <br></br>Front-End Engineer
@@ -324,7 +319,9 @@ const About = () => {
                   src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png"
                 />
                 <h6 className="fw-bold text-primary card-title mb-0">
-                  <strong>Merina <br></br> KM_G2FE5287 </strong>
+                  <strong>
+                    Merina <br></br> KM_G2FE5287{' '}
+                  </strong>
                 </h6>
                 <p className="text-muted card-text mb-2"></p>
                 <ul className="list-inline fs-6 text-muted w-100 mb-0">

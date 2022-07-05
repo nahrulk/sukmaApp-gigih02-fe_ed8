@@ -1,29 +1,29 @@
 .cardbody {
-    font-family: sans-serif;
-    text-align: center;
-    margin-left: 0px;
-    margin-top: 50px;
-    margin-bottom: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    background-image: linear-gradient(#E6E6E6, #D7F2FE);
-    height: 430px;
-    width: 300px;
-    border-radius: 25px;
+  font-family: sans-serif;
+  text-align: center;
+  margin-left: 0px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  background-image: linear-gradient(#e6e6e6, #d7f2fe);
+  height: 430px;
+  width: 300px;
+  border-radius: 25px;
 }
 
 .card {
-    text-align: center;
-    align-items: center;
+  text-align: center;
+  align-items: center;
 }
 .headtextt {
-    font-size: 90px;
-    font-weight: 900 !important;
-    text-shadow: 3px 2px 2px rgb(0, 0, 0) !important;
-    color: white;
+  font-size: 90px;
+  font-weight: 900 !important;
+  text-shadow: 3px 2px 2px rgb(0, 0, 0) !important;
+  color: white;
 }
 
 .bodytext {
-    color: black;
-    font-weight: bold;
+  color: black;
+  font-weight: bold;
 }
