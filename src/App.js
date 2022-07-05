@@ -1,24 +1,21 @@
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Navbar from "./Components/Navbar/Navbar";
-import Footer from "./Components/Footer/Footer";
-import About from "./Pages/About/About";
-import Login from "./Pages/Login/Login";
-import Home from "./Pages/Home/Home";
-import Cyberpage from "./Pages/Flashcard/Cyberpage";
-import Profile from "./Pages/Profile/Profile";
+import React from 'react';
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Navbar from './Components/Navbar/Navbar';
+import Footer from './Components/Footer/Footer';
+import About from './Pages/About/About';
+import Login from './Pages/Login/Login';
+import Home from './Pages/Home/Home';
+import Cyberpage from './Pages/Flashcard/Cyberpage';
+import Profile from './Pages/Profile/Profile';
 
-import Sexualpage from "./Pages/Flashcard/Sexualpage";
-import Physicalpage from "./Pages/Flashcard/Physicalpage";
-import Verbalpage from "./Pages/Flashcard/Verbalpage";
-import { AuthContext } from "./Context/AuthContext";
-import { useContext } from "react";
-import Update from "./Pages/Update/Update";
+import Sexualpage from './Pages/Flashcard/Sexualpage';
+import Physicalpage from './Pages/Flashcard/Physicalpage';
+import Verbalpage from './Pages/Flashcard/Verbalpage';
+import Update from './Pages/Update/Update';
 
 function App() {
-  const { currentUser } = useContext(AuthContext);
-
   return (
     <body>
       <Router>

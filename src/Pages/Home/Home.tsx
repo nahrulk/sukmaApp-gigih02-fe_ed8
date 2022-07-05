@@ -1,12 +1,12 @@
-import React from "react";
-import CategoryIcon from "../../Components/CategoryIcon/CategoryIcon";
-import Guidance from "../../Components/Guidance/Guidance";
-import "./Home.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Sexualpage from "../Flashcard/Sexualpage";
-import Physicalpage from "../Flashcard/Physicalpage";
-import Verbalpage from "../Flashcard/Verbalpage";
-import Cyberpage from "../Flashcard/Cyberpage";
+import React from 'react';
+import CategoryIcon from '../../Components/CategoryIcon/CategoryIcon';
+import Guidance from '../../Components/Guidance/Guidance';
+import './Home.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Sexualpage from '../Flashcard/Sexualpage';
+import Physicalpage from '../Flashcard/Physicalpage';
+import Verbalpage from '../Flashcard/Verbalpage';
+import Cyberpage from '../Flashcard/Cyberpage';
 
 const Home = () => {
   return (
@@ -17,7 +17,7 @@ const Home = () => {
             <div className="p-xl-5 m-xl-5">
               <img
                 className="homeimg align-items-md-center min300"
-                src={require("../../Components/CategoryIcon/homeimggg.png")}
+                src={require('../../Components/CategoryIcon/homeimggg.png')}
               />
             </div>
           </div>
@@ -26,29 +26,14 @@ const Home = () => {
         <div className="col">
           <div className="py-4 py-lg-0 px-lg-4">
             <div className="max500">
-              <h2 className="headtext text-uppercase">
-                Bersatu melawan
-                bullying!
-              </h2>
+              <h2 className="headtext text-uppercase">Bersatu melawan bullying!</h2>
             </div>
             <p className="bodytext">
-              Bullying merupakan segala
-              bentuk penindasan atau
-              kekerasan yang dilakukan
-              dengan sengaja oleh satu
-              atau sekelompok orang yang
-              lebih kuat atau berkuasa
-              terhadap orang lain,
-              bertujuan untuk menyakiti
-              dan dilakukan secara terus
-              menerus. Sejauh ini kita
-              mengenal 4 jenis bullying,
-              yaitu: Bullying Verbal,
-              Bullying Fisik, Bullying
-              Sexual, dan Cyber
-              Bullying. Dengan Sukma
-              kami ingin menyampaikan
-              berbagai macam edukasi
+              Bullying merupakan segala bentuk penindasan atau kekerasan yang dilakukan dengan
+              sengaja oleh satu atau sekelompok orang yang lebih kuat atau berkuasa terhadap orang
+              lain, bertujuan untuk menyakiti dan dilakukan secara terus menerus. Sejauh ini kita
+              mengenal 4 jenis bullying, yaitu: Bullying Verbal, Bullying Fisik, Bullying Sexual,
+              dan Cyber Bullying. Dengan Sukma kami ingin menyampaikan berbagai macam edukasi
               mengenai bullying.
             </p>
           </div>
