@@ -8,7 +8,7 @@ import "./Profile.css";
 import { AuthContext } from "../../Context/AuthContext";
 import { collection, getDocs } from "firebase/firestore";
 import { Button } from "@mui/material";
-import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const Profile = () => {
   const [favs, setFavs] = useState([]);
@@ -41,8 +41,6 @@ const Profile = () => {
 
     getUsers();
   }, []);
-
-  // console.log(users);
 
   const deleteFav = (item) => {
     remove(ref(dbLive, `/${item.uuid}`));
@@ -90,7 +88,9 @@ const Profile = () => {
 
                     <Link to="/update">
                       <div>
-                        <button className="buttonsetting btn btn-primary">Setting</button>
+                        <button className="buttonsetting btn btn-primary">
+                          Setting
+                        </button>
                       </div>
                     </Link>
                   </div>

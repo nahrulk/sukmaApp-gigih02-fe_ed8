@@ -40,8 +40,6 @@ const Update = () => {
     getUsers();
   }, []);
 
-  // console.log(imageUrls);
-
   const handleAdd = async (e) => {
     e.preventDefault();
     try {
