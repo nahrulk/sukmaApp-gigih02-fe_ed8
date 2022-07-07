@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
 import { dbLive, dbStore } from '../../firebase';
 import { uid } from 'uid';
 import { ref, onValue, remove } from 'firebase/database';
@@ -9,6 +8,7 @@ import { AuthContext } from '../../Context/AuthContext';
 import { collection, getDocs } from 'firebase/firestore';
 import { Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { KEY_USERS } from '../../constans';
 
 const Profile = () => {
   const [favs, setFavs] = useState([]);
@@ -16,7 +16,7 @@ const Profile = () => {
   let { userFav } = useState([]);
 
   //   Database Variable
-  const usersCollectionRef = collection(dbStore, 'users');
+  const usersCollectionRef = collection(dbStore, KEY_USERS);
   const [users, setUsers] = useState([]); // Kumpulan data user
   let { userProfiles } = useState([]); // tempat nyimpen user yang terfilter
 
@@ -61,7 +61,7 @@ const Profile = () => {
                   <div className="d-flex flex-column align-items-center text-center ">
                     {userProfiles.map((user) => (
                       <div>
-                        <img className="rounded-circle " width="100px" src={user.img} />
+                        <img className="rounded-circle " width="100px" height="100px" src={user.img} />
                         {!currentUser ? (
                           <div>
                             <span className="font-weight-bold fw-bold fs-5">Anonim</span>
