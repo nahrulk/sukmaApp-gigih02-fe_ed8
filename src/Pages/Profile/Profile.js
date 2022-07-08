@@ -1,14 +1,14 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import FavCard from "../../Components/FavCard/FavCard";
-import { dbLive, dbStore } from "../../firebase";
-import { uid } from "uid";
-import { ref, onValue, remove } from "firebase/database";
-import "./Profile.css";
-import { AuthContext } from "../../Context/AuthContext";
-import { collection, getDocs } from "firebase/firestore";
-import { Button } from "@mui/material";
+import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { dbLive, dbStore } from '../../firebase';
+import { uid } from 'uid';
+import { ref, onValue, remove } from 'firebase/database';
+import './Profile.css';
+import { AuthContext } from '../../Context/AuthContext';
+import { collection, getDocs } from 'firebase/firestore';
+import { Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { KEY_USERS } from '../../constans';
 
 const Profile = () => {
   const [favs, setFavs] = useState([]);
@@ -16,7 +16,7 @@ const Profile = () => {
   let { userFav } = useState([]);
 
   //   Database Variable
-  const usersCollectionRef = collection(dbStore, "users");
+  const usersCollectionRef = collection(dbStore, KEY_USERS);
   const [users, setUsers] = useState([]); // Kumpulan data user
   let { userProfiles } = useState([]); // tempat nyimpen user yang terfilter
 
@@ -42,8 +42,6 @@ const Profile = () => {
     getUsers();
   }, []);
 
-  // console.log(users);
-
   const deleteFav = (item) => {
     remove(ref(dbLive, `/${item.uuid}`));
   };
@@ -53,36 +51,28 @@ const Profile = () => {
 
   return (
     <div>
-      <div class="container">
-        <div class="row">
-          <div class="col.md-4 mt-1">
-            <div class="card">
+      <div className="container">
+        <div className="row">
+          <div className="col.md-4 mt-1">
+            <div className="card">
               <h1>PROFILE</h1>
-              <div class="card-body ">
-                <div class=" border-right">
-                  <div class="d-flex flex-column align-items-center text-center ">
+              <div className="card-body ">
+                <div className=" border-right">
+                  <div className="d-flex flex-column align-items-center text-center ">
                     {userProfiles.map((user) => (
                       <div>
-                        <img
-                          class="rounded-circle "
-                          width="100px"
-                          src={user.img}
-                        />
+                        <img className="rounded-circle " width="100px" height="100px" src={user.img} />
                         {!currentUser ? (
                           <div>
-                            <span class="font-weight-bold fw-bold fs-5">
-                              Anonim
-                            </span>
+                            <span className="font-weight-bold fw-bold fs-5">Anonim</span>
                             <br />
-                            <span class="fs-6 fst-italic">@anonim</span>
+                            <span className="fs-6 fst-italic">@anonim</span>
                           </div>
                         ) : (
                           <div>
-                            <span class="font-weight-bold fw-bold fs-5">
-                              {user.fullname}
-                            </span>
+                            <span className="font-weight-bold fw-bold fs-5">{user.fullname}</span>
                             <br />
-                            <span class="fs-6 fst-italic">{user.username}</span>
+                            <span className="fs-6 fst-italic">{user.username}</span>
                           </div>
                         )}
                       </div>
@@ -100,14 +90,14 @@ const Profile = () => {
           </div>
 
           <h1>FAVORITE CARDS ({userFav?.length})</h1>
-          <div class="flipcard">
+          <div className="flipcard">
             {userFav.map((item) => (
-              <div class="flashcard  flip-card">
-                <div class="flip-card-inner">
-                  <div class="flip-card-front">
+              <div className="flashcard  flip-card">
+                <div className="flip-card-inner">
+                  <div className="flip-card-front">
                     <h2 key={item.userId}>{item.fav.front.display}</h2>
                   </div>
-                  <div class="flip-card-back">
+                  <div className="flip-card-back">
                     <p>{item.fav.back.display}</p>
                   </div>
                 </div>
@@ -116,9 +106,8 @@ const Profile = () => {
                   onClick={() => deleteFav(item)}
                   size="large"
                   variant="contained"
-                  style={{ backgroundColor: "#fafafa", color: "black" }}
-                  startIcon={<DeleteIcon style={{ color: "white" }} />}
-                >
+                  style={{ backgroundColor: '#fafafa', color: 'black' }}
+                  startIcon={<DeleteIcon style={{ color: 'white' }} />}>
                   Delete Card
                 </Button>
               </div>

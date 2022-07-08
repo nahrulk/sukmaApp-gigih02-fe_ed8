@@ -1,97 +1,95 @@
 .top-bar {
-    font-family: sans-serif;
-    text-align: right;
-    margin-top: 0px;
+  font-family: sans-serif;
+  text-align: right;
+  margin-top: 0px;
 }
 
 .logo {
-    text-align: left;
+  text-align: left;
 }
 
-
-
 .row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card-body {
-    font-family: sans-serif;
-    text-align: center;
-    margin-left: 0px;
-    margin-top: 50px;
-    margin-bottom: 20px;
-    max-width: 200px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    color: black;
+  font-family: sans-serif;
+  text-align: center;
+  margin-left: 0px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  max-width: 200px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  color: black;
 }
 
 .button {
-    font-size: 40px;
-    padding: 10px;
-    border-radius: 10px;
-    margin: 20px;
+  font-size: 40px;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 20px;
 }
 
 .hr {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .card {
-    text-align: center;
-    align-items: center;
+  text-align: center;
+  align-items: center;
 }
 
 .flipcard {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .flip-front {
-    width: 200%;
-    height: 300px;
-    margin: 50px;
-    justify-content: space-around;
-    background-image: linear-gradient(#E6E6E6, #D7F2FE);
-    padding: 20px;
-    border: 2px solid gray;
-    position: relative;
-    cursor: pointer;
-    perspective: 100px;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-    justify-content: center;
-    border-radius: 35px;
-    box-shadow: 3px 3px 5px rgb(101, 99, 99);
-    text-align: center;
-    font-size: 10px;
-    font-weight: bold;
+  width: 200%;
+  height: 300px;
+  margin: 50px;
+  justify-content: space-around;
+  background-image: linear-gradient(#e6e6e6, #d7f2fe);
+  padding: 20px;
+  border: 2px solid gray;
+  position: relative;
+  cursor: pointer;
+  perspective: 100px;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  justify-content: center;
+  border-radius: 35px;
+  box-shadow: 3px 3px 5px rgb(101, 99, 99);
+  text-align: center;
+  font-size: 10px;
+  font-weight: bold;
 }
 
 .btn-next {
-    text-align: right;
+  text-align: right;
 }
 
 .footer-left {
-    text-align: center;
-    padding-bottom: 10px;
+  text-align: center;
+  padding-bottom: 10px;
 }
 
 .social-media {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .instagram {
-    padding-left: 10px;
-    padding-right: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .bot-footer {
-    text-align: center;
-    padding-top: 25px;
-} 
+  text-align: center;
+  padding-top: 25px;
+}

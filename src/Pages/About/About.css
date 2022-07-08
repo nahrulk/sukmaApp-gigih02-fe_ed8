@@ -1,0 +1,17 @@
+.aboutcard {
+    display: grid;
+    flex-direction: row;
+    justify-content: center;
+    grid-template-columns: 320px 320px 320px 320px;
+}
+
+.cardabout {
+    text-align: center;
+    color: black;
+    height: 270px;
+    background-image: linear-gradient(#e6e6e6, #d7f2fe);
+    border-radius: 35px;
+    box-shadow: 3px 3px 5px rgb(101, 99, 99);
+    width: 280px !important;
+    margin-top: 30px;
+  }

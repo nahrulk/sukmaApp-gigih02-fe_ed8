@@ -1,16 +1,16 @@
-import React, { useContext, useEffect, useState } from "react";
-import Flashcard from "./Card/Card";
-import PropTypes from "prop-types";
-import "./Flashcard.css";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import { Button } from "@mui/material";
-import { dbLive } from "../../firebase";
-import { uid } from "uid";
-import { set, ref, onValue } from "firebase/database";
-import { AuthContext } from "../../Context/AuthContext";
+import React, { useContext, useEffect, useState } from 'react';
+import Flashcard from './Card/Card';
+import PropTypes from 'prop-types';
+import './Flashcard.css';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import { Button } from '@mui/material';
+import { dbLive } from '../../firebase';
+import { uid } from 'uid';
+import { set, ref, onValue } from 'firebase/database';
+import { AuthContext } from '../../Context/AuthContext';
 
 const Flashcards = (props) => {
-  const [fav, setFav] = useState("");
+  const [setFav] = useState('');
   const [flipped, setFlipped] = useState(false);
   const [current, setCurrent] = useState(0);
 
@@ -52,15 +52,15 @@ const Flashcards = (props) => {
     set(ref(dbLive, `/${uuid}`), {
       userId,
       fav,
-      uuid,
+      uuid
     });
 
-    setFav("");
+    setFav('');
   };
 
   userFav = favs.filter((item) => item.userId === currentUser.uid);
 
-  let storeFav = userFav.find((fa) => fa.fav.id === props.items[current].id); // melakukan mapping untuk mengecek apakah ada data atau tidak
+  const storeFav = userFav.find((fa) => fa.fav.id === props.items[current].id); // melakukan mapping untuk mengecek apakah ada data atau tidak
 
   const favDisabled = storeFav ? true : false;
 
@@ -96,12 +96,11 @@ const Flashcards = (props) => {
           onClick={writeToFav}
           size="large"
           variant="contained"
-          style={{ backgroundColor: "#fafafa", color: "black" }}
-          startIcon={<FavoriteIcon style={{ color: "red" }} />}
-        >
-          {" "}
+          style={{ backgroundColor: '#fafafa', color: 'black' }}
+          startIcon={<FavoriteIcon style={{ color: 'red' }} />}>
+          {' '}
           Favorite
-        </Button>{" "}
+        </Button>{' '}
         {/* ADD LOVE UI BUTTON FROM MUI */}
         {current < items.length - 1 ? (
           <button onClick={nextCard}>Next</button>
@@ -116,7 +115,7 @@ const Flashcards = (props) => {
 };
 
 Flashcard.propTypes = {
-  items: PropTypes.array,
+  items: PropTypes.array
 };
 
 export default Flashcards;
